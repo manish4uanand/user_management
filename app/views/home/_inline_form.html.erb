@@ -1,0 +1,24 @@
+<%= form_with url: update_user_path(user), class: 'divTableRow', id: dom_id(user, 'inline_form'), remote: true do |f| %> 
+    <div class="divTableCell">
+        #<%= user.id %>
+    </div>
+
+    <div class="divTableCell">
+        <%= user.name %>
+    </div>
+
+    <div class="divTableCell">
+        <%= user.email %>
+    </div>
+
+    <div class="divTableCell">        
+        <%= user.phone_number %>        
+    </div>
+
+  <div class="divTableCell">
+    <%= f.text_field :address, autofocus: true %>
+  </div>
+  <div class="divTableCell">
+    <%= f.submit %>
+  </div>
+<% end %>

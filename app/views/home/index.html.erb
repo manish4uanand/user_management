@@ -1,0 +1,9 @@
+<div class="row">
+    <% if user_signed_in? && current_user.admin == false %>
+        <%= render partial: "profile" %>
+    <% elsif user_signed_in? && current_user.admin == true %>
+        <%= render partial: "users_list" %>
+    <% else %>
+        Hi, Please Sign In or Sign up to enter Solbeg World!
+    <% end %>
+</div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">LOGO</a>
+  <%= link_to "Solebeg", root_path, class: 'navbar-brand' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,14 +7,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active ">
-        <% if user_signed_in? %>
-          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        <% if user_signed_in? && current_user.admin == false %>
+          <%= link_to "Profile", profile_path, class: 'btn btn-info' %>
+          <%= link_to "Sign Out", destroy_user_session_path, class: 'btn btn-info', :method => :delete %>
+        <% elsif user_signed_in? && current_user.admin == true %>
+          <%= link_to "Profile", profile_path, class: 'btn btn-info' %>
+          <%= link_to "Users List", users_list_path, class: 'btn btn-info' %>
+          <%= link_to "Sign Out", destroy_user_session_path, class: 'btn btn-info', :method => :delete %>
         <% else %>
-          <%= link_to "Sign In", new_user_session_path, :method => :get %> | 
-          <%= link_to "Sign up", new_user_registration_path, :method => :get %>
+          <%= link_to "Sign In", new_user_session_path, class: 'btn btn-info', :method => :get %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-info', :method => :get %>
         <% end %>
       </li>        
   </div>
 </nav>
-
-

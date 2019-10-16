@@ -1,9 +1,7 @@
 <div class="row">
-    <% if user_signed_in? && current_user.admin == false %>
-        <%= render partial: "profile" %>
-    <% elsif user_signed_in? && current_user.admin == true %>
-        <%= render partial: "users_list" %>
-    <% else %>
-        Hi, Please Sign In or Sign up to enter Solbeg World!
-    <% end %>
+    <div class="card mt-5 text-center" style="width: 18rem; margin: 0 auto;">
+        <div class="card-body">
+            <p class="card-text">Welcome To Solbeg</p>            
+        </div>
+    </div>
 </div>

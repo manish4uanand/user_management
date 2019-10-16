@@ -1,11 +1,6 @@
 class HomeController < ApplicationController
 
-    def index
-        if current_user.present?
-            if current_user.admin == true
-                @users = User.all.where(admin: false)            
-            end
-        end
+    def index        
     end
 
     def edit_user
@@ -18,4 +13,12 @@ class HomeController < ApplicationController
         @user.save!
     end
     
+    def users_list
+        @users = User.all.where(admin: false).order('updated_at DESC')
+    end
+
+    def profile
+        @user = current_user
+    end
+
 end

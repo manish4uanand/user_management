@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root :to =>'home#index'
   get 'edit_user' => 'home#edit_user'
   post 'update_user' => 'home#update_user'
+  get 'users_list' => "home#users_list"
+  get 'profile' => "home#profile"
 end
